@@ -21,8 +21,8 @@ fun getValidNum(): Int {
     try {
         num = Console.readLine().trim().toInt()
     } catch (e: NumberFormatException) {
-        throw IllegalArgumentException("[ERROR] 잘못된 입력: 정수가 아닙니다")
+        throw IllegalArgumentException("[ERROR] 정수가 아닙니다")
     }
-    if (num < 1) throw IllegalArgumentException("[ERROR] 잘못된 입력: 1이상인 정수가 아닙니다")
+    if (num < 1) throw IllegalArgumentException("[ERROR] 1이상인 정수가 아닙니다")
     return num
 }
