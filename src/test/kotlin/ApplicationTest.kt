@@ -12,16 +12,26 @@ internal class ApplicationTest : NsTest() {
     @Test
     fun 기능() {
         assertSimpleTest {
-            run("pobi,woni,jun","2")
-            assertThat(output()).contains("[pobi, woni, jun]","2")
+            run("pobi,woni,jun", "2")
+            assertThat(output()).contains("[pobi, woni, jun]", "2")
         }
     }
 
     @Test
-    fun 예외() {
+    fun 예외_시도할_횟수가_1이상인_정수가_아닐_때() {
         assertSimpleTest {
-            assertThatThrownBy { runException("") }
+            assertThatThrownBy { runException("pobi,woni,jun", "0") }
                 .isInstanceOf(IllegalArgumentException::class.java)
+                .hasMessageContaining("[ERROR] 잘못된 입력: 1이상인 정수가 아닙니다")
+        }
+    }
+
+    @Test
+    fun 예외_시도할_횟수가_숫자가_아닐_때() {
+        assertSimpleTest {
+            assertThatThrownBy { runException("pobi,woni,jun", "a") }
+                .isInstanceOf(IllegalArgumentException::class.java)
+                .hasMessageContaining("[ERROR] 잘못된 입력: 정수가 아닙니다")
         }
     }
 
