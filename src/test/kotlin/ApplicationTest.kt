@@ -12,8 +12,8 @@ internal class ApplicationTest : NsTest() {
     @Test
     fun 기능() {
         assertSimpleTest {
-            run("hi","2")
-            assertThat(output()).contains("hi","2")
+            run("pobi,woni,jun","2")
+            assertThat(output()).contains("[pobi, woni, jun]","2")
         }
     }
 
