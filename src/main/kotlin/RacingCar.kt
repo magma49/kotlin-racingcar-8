@@ -1,7 +1,6 @@
 package racingcar
 
 import camp.nextstep.edu.missionutils.Randoms
-import org.assertj.core.data.Index
 
 class RacingCar(private val cars: List<String>, private val num: Int) {
 
