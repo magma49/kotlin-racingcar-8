@@ -10,10 +10,7 @@ fun main() {
     val num = getValidNum()
 
     val cars = input.split(",")
-    val race = RacingCar(cars)
-
-    println(cars)
-    println(num)
+    RacingCar(cars, num).race()
 }
 
 fun getValidNum(): Int {
