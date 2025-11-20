@@ -4,7 +4,8 @@ import camp.nextstep.edu.missionutils.Randoms
 
 class RacingCar(private val cars: List<String>, private val num: Int) {
 
-    private val counts: IntArray = IntArray(cars.size)
+    private val counts = IntArray(cars.size)
+    private val winners = mutableListOf<String>()
 
     init {
         require(cars.all { it.length in 1..5 }) {
@@ -26,6 +27,7 @@ class RacingCar(private val cars: List<String>, private val num: Int) {
             }
             print("\n")
         }
+        printWinners()
     }
 
     fun printNow(car: String, num: Int) {
@@ -37,9 +39,18 @@ class RacingCar(private val cars: List<String>, private val num: Int) {
     fun move(index: Int, check: Boolean): Boolean {
         if (Randoms.pickNumberInRange(0, 9) >= 4) {
             print("-")
-            if (++counts[index] == num)
+            if (++counts[index] == num) {
+                winners.add(cars[index])
                 return false
+            }
         }
         return check
+    }
+
+    fun printWinners() {
+        print("최종 우승자 : ")
+        for (winner in winners)
+            print(winner + " ")
+        print("\n")
     }
 }
