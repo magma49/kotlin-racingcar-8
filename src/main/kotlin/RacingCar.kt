@@ -49,8 +49,13 @@ class RacingCar(private val cars: List<String>, private val num: Int) {
 
     fun printWinners() {
         print("최종 우승자 : ")
-        for (winner in winners)
-            print(winner + " ")
+        var check = false
+        for (winner in winners) {
+            if (check)
+                print(", ")
+            print(winner)
+            check = true
+        }
         print("\n")
     }
 }
