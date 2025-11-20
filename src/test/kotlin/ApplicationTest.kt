@@ -16,9 +16,20 @@ internal class ApplicationTest : NsTest() {
         assertRandomNumberInRangeTest(
             {
                 run("pobi,woni", "1")
-                assertThat(output()).contains("pobi : -", "woni :")
+                assertThat(output()).contains("pobi : -", "woni :", "최종 우승자 : pobi")
             },
             MOVING_FORWARD, STOP
+        )
+    }
+
+    @Test
+    fun 기능_3명_2_랜덤X() {
+        assertRandomNumberInRangeTest(
+            {
+                run("pobi,woni,jun", "2")
+                assertThat(output()).contains("pobi : -", "woni : ", "jun : ", "최종 우승자 : pobi, jun")
+            },
+            MOVING_FORWARD, STOP, STOP, STOP, MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD, STOP, MOVING_FORWARD
         )
     }
 
@@ -26,7 +37,7 @@ internal class ApplicationTest : NsTest() {
     fun 기능_3명_4_랜덤() {
         assertSimpleTest {
             run("pobi,woni,jun", "4")
-            assertThat(output()).contains("pobi :", "woni :", "jun :")
+            assertThat(output()).contains("pobi :", "woni :", "jun :", "최종 우승자 :")
         }
     }
 
