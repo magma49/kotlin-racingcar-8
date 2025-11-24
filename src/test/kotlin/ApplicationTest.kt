@@ -46,7 +46,7 @@ internal class ApplicationTest : NsTest() {
         assertSimpleTest {
             assertThatThrownBy { runException("pobi,woni,jun", "0") }
                 .isInstanceOf(IllegalArgumentException::class.java)
-                .hasMessageContaining("[ERROR] 1이상인 정수가 아닙니다")
+                .hasMessageContaining("[ERROR] 1이상인 정수만 입력해주세요.")
         }
     }
 
@@ -55,7 +55,7 @@ internal class ApplicationTest : NsTest() {
         assertSimpleTest {
             assertThatThrownBy { runException("pobi,woni,jun", "a") }
                 .isInstanceOf(IllegalArgumentException::class.java)
-                .hasMessageContaining("[ERROR] 정수가 아닙니다")
+                .hasMessageContaining("[ERROR] 정수만 입력해주세요.")
         }
     }
 
